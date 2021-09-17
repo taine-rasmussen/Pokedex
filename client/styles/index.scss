@@ -2,26 +2,49 @@ body{
   margin: 0;
 }
 
+h1{
+  font-size: 8.5rem;
+}
+
 .app{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+
+  max-width: 100vw;
+  min-height: 100vh;
+}
+
+.header-container{
+
+  margin-left: 29.5rem;
+  margin-top: -27rem;
+}
+
+.header{
 
 }
 
-.poke-header-container{
+.search-container{
+  margin-left: 29.5rem;
 
 }
 
-.poke-header{
-
+.search{
+  width: 33vw;
 }
 
-.poke-search-container{
-
+.btn-container{
+  margin-left: 29.5rem;
+  margin-top: 1rem;
 }
 
-.poke-search{
-
+.btn-search{
+  margin-left: 3rem;
 }
 
-.poke-btn-container{
-
+.btn-random{
+margin-left: 16rem;
 }
