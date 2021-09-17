@@ -9,6 +9,13 @@ h1{
   font-family: 'Pokemon Solid', sans-serif;
 }
 
+button{
+  border: 3px solid #3c5aa6;
+  border-radius: 10px;
+  font-size: 1rem;
+  padding: 5px;
+}
+
 .app{
   display: flex;
   flex-wrap: wrap;
