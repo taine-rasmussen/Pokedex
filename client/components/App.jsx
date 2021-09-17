@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
 
 // Importing API calls
@@ -6,7 +6,17 @@ import { getData } from '../api'
 
 function App () {
 
-  console.log(getData())
+
+
+  useEffect(() => {
+    getData()
+    .then(res => {
+      console.log(res)
+    })
+    .catch((err) => {
+      console.error(err.message)
+    })
+  }, [])
 
   return (
     <>
