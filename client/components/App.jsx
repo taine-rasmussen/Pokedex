@@ -2,9 +2,11 @@ import React from 'react'
 
 
 // Importing API calls
-import getData from '../api'
+import { getData } from '../api'
 
 function App () {
+
+  console.log(getData())
 
   return (
     <>
