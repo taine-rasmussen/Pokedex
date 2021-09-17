@@ -1,6 +1,9 @@
 import React from 'react'
 
 
+// Importing API calls
+import getData from '../api'
+
 function App () {
 
   return (

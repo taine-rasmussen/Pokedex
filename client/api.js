@@ -5,5 +5,5 @@ import request from 'superagent'
 export function getData () {
   return request
     .get(`https://pokeapi.co/api/v2/pokemon?limit=1000`)
-    .then(response => response.body)
+    .then(res => res.body)
 }
