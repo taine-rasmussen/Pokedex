@@ -1,6 +1,9 @@
 import React from 'react'
 
 
+// Importing API calls
+import getData from '../api'
+
 function App () {
 
   return (
@@ -12,7 +15,10 @@ function App () {
         </div>
 
         <div className='search-container'>
-          <input className='search'></input>
+          <input 
+            className='search'
+            type='text'
+            placeholder='Enter Pokemon name...'></input>
         </div>
 
         <div className='btn-container'>

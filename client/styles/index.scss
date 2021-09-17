@@ -9,6 +9,16 @@ h1{
   font-family: 'Pokemon Solid', sans-serif;
 }
 
+button{
+  border: 3px solid #3c5aa6;
+  border-radius: 10px;
+  font-size: 1rem;
+  padding: 5px;
+}
+button:hover{
+  background-color: #3c5aa6;
+}
+
 .app{
   display: flex;
   flex-wrap: wrap;
@@ -33,12 +43,17 @@ h1{
 }
 
 .search-container{
-  margin-left: 29.5rem;
-
+  margin-left: 27rem;
+  margin-top: -5rem;
 }
 
 .search{
-  width: 33vw;
+  width: 40vw;
+  border:#3c5aa6 3px solid;
+  border-radius: 25px;
+  outline:none;
+  padding: 10px;
+  font-size: 1.2rem;
 }
 
 .btn-container{
