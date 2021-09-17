@@ -8,7 +8,7 @@ function App () {
       <div className='app'>
 
         <div className='header-container'>
-          <h1 className='header'>Pokedex</h1>
+          <h1 className='header'>Pokédex</h1>
         </div>
 
         <div className='search-container'>
