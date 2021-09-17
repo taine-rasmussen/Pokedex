@@ -1,22 +1,25 @@
-import React, {useEffect} from 'react'
-
+import React, {useEffect, useState} from 'react'
 
 // Importing API calls
 import { getData } from '../api'
 
 function App () {
 
+  // Used to store all Pokemon data
+  const [data, setData] = useState('')
 
-
+  // Gets data on load
   useEffect(() => {
     getData()
     .then(res => {
-      console.log(res)
+      setData(res)
     })
     .catch((err) => {
       console.error(err.message)
     })
   }, [])
+
+  console.log(data)
 
   return (
     <>
