@@ -7,17 +7,17 @@ function App () {
     <>
       <div className='app'>
 
-        <div className='poke-header-container'>
-          <h1 className='poke-header'>Pokedex</h1>
+        <div className='header-container'>
+          <h1 className='header'>Poskedex</h1>
         </div>
 
-        <div className='poke-search-container'>
-          <input className='poke-search'></input>
+        <div className='search-container'>
+          <input className='search'></input>
         </div>
 
-        <div className='poke-btn-container'>
-          <button className='poke-btn-search'>Search</button>
-          <button className='poke-btn-random'>Random</button>
+        <div className='btn-container'>
+          <button className='btn-search'>Search</button>
+          <button className='btn-random'>Random</button>
         </div>
       </div>
     </>
