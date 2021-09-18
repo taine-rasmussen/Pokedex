@@ -22,6 +22,12 @@ function App () {
     })
   }, [])
 
+  // let pokemon = data[0]
+
+
+  console.log('Data Keys test:', Object.keys(data))
+  // console.log('Single data test:', pokemon)
+
 
   const handleSubmit = (e) => {
     e.preventDefault()
