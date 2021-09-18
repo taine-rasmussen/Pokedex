@@ -8,6 +8,9 @@ function App () {
   // Used to store all Pokemon data
   const [data, setData] = useState('')
 
+  // Stores input text
+  const [input, setInput] = useState('')
+
   // Gets data on load
   useEffect(() => {
     getData()
@@ -19,7 +22,17 @@ function App () {
     })
   }, [])
 
-  console.log(data)
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    
+  }
+
+  const handleChange = (e) => {
+    e.preventDefault()
+    console.log(input)
+  }
+
 
   return (
     <>
@@ -30,10 +43,15 @@ function App () {
         </div>
 
         <div className='search-container'>
-          <input 
-            className='search'
-            type='text'
-            placeholder='Enter Pokemon name...'></input>
+          <form onSubmit={(e) => handleSubmit(e)}>
+            <input 
+              className='search'
+              type='text'
+              placeholder='Enter Pokemon name...'
+              value={input}
+              onChange={(e) => handleChange(e)}>
+            </input>
+          </form>
         </div>
 
         <div className='btn-container'>
