@@ -19,6 +19,8 @@ function App () {
     })
   }, [])
 
+   let inputText = document.getElementById('search')
+
   console.log(data)
 
   return (
@@ -30,10 +32,15 @@ function App () {
         </div>
 
         <div className='search-container'>
-          <input 
-            className='search'
-            type='text'
-            placeholder='Enter Pokemon name...'></input>
+          <form>
+            <input 
+              className='search'
+              id='search'
+              type='text'
+              placeholder='Enter Pokemon name...'
+              value='input'>
+            </input>
+          </form>
         </div>
 
         <div className='btn-container'>
