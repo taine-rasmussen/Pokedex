@@ -1,4 +1,6 @@
 import React, {useEffect, useState} from 'react'
+import request from 'superagent'
+
 
 // Importing API calls
 import { getData } from '../api'
@@ -7,6 +9,9 @@ function App () {
 
   // Used to store all Pokemon data
   const [data, setData] = useState('')
+
+  // Used to store single Pokemon search results
+  // const [singlePokemon, setSinglePokemon] = useState('d')
 
   // Stores input text
   const [input, setInput] = useState('')
@@ -22,19 +27,37 @@ function App () {
     })
   }, [])
 
-  // let pokemon = data[0]
-
-
-  // console.log('Data Keys test:', Object.keys(data))
-  // console.log('data test:', data.results)
-
   //try for loop data.results
 
   // Handles form submit
   const handleSubmit = (e) => {
     e.preventDefault()
-    
+    getOnePokemon()
+    .then(res => {
+      setSinglePokemon(res)
+    })
+    .catch((err) => {
+      console.error(err.message)
+    })
   }
+
+  console.log('All data:', data)
+
+  const getOnePokemon = () => {
+    return request
+      .get(`https://pokeapi.co/api/v2/pokemon/${input}`)
+      .then(res => res.body)
+  }
+
+    // Gets all data from get request
+    const pokeData = data.results
+
+    // Gets arrays stored inside     
+    const singlePoke =  pokeData ? pokeData[8] : []
+
+    console.log(singlePoke.name)
+
+
 
   // Captures text input & updates state
   const handleChange = (e) => {
@@ -53,7 +76,7 @@ function App () {
         </div>
 
         <div className='search-container'>
-          <form onSubmit={(e) => handleSubmit(e)}>
+          <form onSubmit={handleSubmit}>
             <input 
               className='search'
               type='text'
