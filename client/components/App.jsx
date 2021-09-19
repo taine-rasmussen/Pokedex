@@ -25,16 +25,20 @@ function App () {
   // let pokemon = data[0]
 
 
-  console.log('Data Keys test:', Object.keys(data))
-  // console.log('Single data test:', pokemon)
+  // console.log('Data Keys test:', Object.keys(data))
+  // console.log('data test:', data.results)
 
+  //try for loop data.results
 
+  // Handles form submit
   const handleSubmit = (e) => {
     e.preventDefault()
     
   }
 
+  // Captures text input & updates state
   const handleChange = (e) => {
+    setInput(e.target.value)
     e.preventDefault()
     console.log(input)
   }
