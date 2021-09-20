@@ -12,6 +12,8 @@ function App () {
 
   // Stores input text
   const [input, setInput] = useState('')
+  const [display, setDisplay] = useState('')
+
 
   // Pull all pokemon from data 
   // Have search map data results instead of another get request
@@ -31,21 +33,35 @@ function App () {
   const pokeData = data.results
 
   // Gets arrays stored inside     
-  const singlePoke = pokeData ? pokeData[8] : []
+  const singlePoke = pokeData ? pokeData[0] : []
 
   console.log(singlePoke.name)
 
 
+  // Takes input and maps poke data for name and sets display as that name
+  const Search = (e) => {
+    e.preventDefault()
+    pokeData.map(() => {
+      if(pokeData.name === input){
+        setDisplay(input)
+      } else {
+        return null
+      }
+    })
+  }
+
+  console.log('Dispaly:', display)
+
   // Handles form submit
   const handleSubmit = (e) => {
     e.preventDefault()
+    setDisplay('fuck just work please')
   }
 
   // Captures text input & updates state
   const handleChange = (e) => {
     setInput(e.target.value)
     e.preventDefault()
-    console.log(input)
   }
 
 
@@ -73,6 +89,8 @@ function App () {
           <button className='btn-search'>Search</button>
           <button className='btn-random'>Random</button>
         </div>
+
+        <h3>{display}</h3>
       </div>
     </>
   )
