@@ -10,13 +10,13 @@ function App () {
   // Used to store all Pokemon data
   const [data, setData] = useState('')
 
-  // Used to store single Pokemon search results
-  // const [singlePokemon, setSinglePokemon] = useState('d')
-
   // Stores input text
   const [input, setInput] = useState('')
 
-  // Gets data on load
+  // Pull all pokemon from data 
+  // Have search map data results instead of another get request
+
+  // Gets all data on load
   useEffect(() => {
     getData()
     .then(res => {
@@ -27,37 +27,19 @@ function App () {
     })
   }, [])
 
-  //try for loop data.results
+  // Gets all data from get request
+  const pokeData = data.results
+
+  // Gets arrays stored inside     
+  const singlePoke = pokeData ? pokeData[8] : []
+
+  console.log(singlePoke.name)
+
 
   // Handles form submit
   const handleSubmit = (e) => {
     e.preventDefault()
-    getOnePokemon()
-    .then(res => {
-      setSinglePokemon(res)
-    })
-    .catch((err) => {
-      console.error(err.message)
-    })
   }
-
-  console.log('All data:', data)
-
-  const getOnePokemon = () => {
-    return request
-      .get(`https://pokeapi.co/api/v2/pokemon/${input}`)
-      .then(res => res.body)
-  }
-
-    // Gets all data from get request
-    const pokeData = data.results
-
-    // Gets arrays stored inside     
-    const singlePoke =  pokeData ? pokeData[8] : []
-
-    console.log(singlePoke.name)
-
-
 
   // Captures text input & updates state
   const handleChange = (e) => {
