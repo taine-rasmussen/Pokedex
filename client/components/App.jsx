@@ -39,7 +39,7 @@ function App () {
 
   function getSingleData () {
     return request
-      .get(`https://pokeapi.co/api/v2/pokemon/${index}`)
+      .get({pokeUrl})
       .then(res => res.body)
   }
 
@@ -52,8 +52,8 @@ function App () {
       console.error(err.message)
     })
   }
-  // SinglePokemon()
-  // getSingleData()
+ 
+  
 
 
     const handleChange = (e) => {
