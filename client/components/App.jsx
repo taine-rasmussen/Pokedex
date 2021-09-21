@@ -6,13 +6,16 @@ import { getData } from '../api'
 
 function App () {
 
-  // Stores all Pokemon data
+  // Stores all Pokemon data on load
   const [data, setData] = useState('data')
   // Stores single Pokemon data
-  const [singleData, setSingleData] = useState({
-    name: '',
-    url: ''
+  const [singleData, setSingleData] = useState([''])
+  //  Stores info from pokemon profile to be displayed
+  const [profile, setProfile] = useState({
+    type: ''
   })
+
+
   // Stores input text
   const [input, setInput] = useState('input')
   // Stores data used to display on screen
@@ -45,47 +48,46 @@ function App () {
   let pokemonUrl = pokeData ? pokeData[0].url : []
 
 
+// Updates single Pokemon object with current name & url
+const updateSingleData = () => {
+  setSingleData(singleData[1] = pokemonUrl)    
+}
 
-
-    // Updates single Pokemon object with current name & url
-    const updateSingleData = () => {
-      setSingleData({
-        name: pokemonName,
-        url: pokemonUrl
-      })
-    }
-
+    
+    let test = singleData[1]
 
 
     // API call for single pokemon data
     function getSingleData () {
       return request
-        .get({singleData})
+        .get(test)
         .then(res => res.body)
     }
 
-
-
-
-
-
-
-
-
-
-
-    
-    
     // Calls single Pokemon API GET & updates state with info
     const SinglePokemon = () => {
       getSingleData()
       .then(res => {
-        setSingleData(res)
+        setData(res)
       })
       .catch((err) => {
         console.error(err.message)
       })
     }
+
+
+
+    const uhhh = () => {
+      SinglePokemon()
+    }
+
+
+
+
+
+
+
+
  
     // Updates input state with text entered into search box
     const handleChange = (e) => {
@@ -111,7 +113,7 @@ function App () {
               onChange={(e) => {handleChange(e)}}
             />
             <button className='btn-search' onClick={updateSingleData}>Search</button>
-            <button className='btn-random'>Random</button>
+            <button className='btn-random' onClick={SinglePokemon}>get data</button>
           </form>
         <h3>{display}</h3> 
       </div>
