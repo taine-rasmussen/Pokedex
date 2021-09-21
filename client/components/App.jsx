@@ -17,8 +17,6 @@ function App () {
   const [input, setInput] = useState('input')
   // Stores data used to display on screen
   const [display, setDisplay] = useState('display')
-  // stores Pokemon API URl used to get singleData
-  const [pokeUrl, setPokeUrl] = useState('pokeUrl')
 
 
   // Gets all data on load
@@ -32,6 +30,13 @@ function App () {
     })
   }, [])
 
+
+
+
+
+
+
+
   // Gets all data from get request
   const pokeData = data.results
 
@@ -39,37 +44,61 @@ function App () {
   let pokemonName = pokeData ? pokeData[0].name : []
   let pokemonUrl = pokeData ? pokeData[0].url : []
 
-  // API call for single pokemon data
-  function getSingleData () {
-    return request
-      .get({pokemonUrl})
-      .then(res => res.body)
-  }
 
-  // Sets state data to be used for Get request
-  const getpokeUrl = () => {
+
+   // Sets state data to be used for Get request
+   const getpokeUrl = () => {
     setPokeUrl({pokemonUrl})
     console.log('onClick working, url is:', pokeUrl)
   }
 
-  // Calls single Pokemon API GET & updates state with info
-  const SinglePokemon = () => {
-    getSingleData()
-    .then(res => {
-      setSingleData(res)
-    })
-    .catch((err) => {
-      console.error(err.message)
+
+  const updateSingleData = () => {
+    setSingleData({
+      name: pokemonName,
+      url: pokemonUrl
     })
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // API call for single pokemon data
+    function getSingleData () {
+      return request
+        .get({pokemonUrl})
+        .then(res => res.body)
+    }
+
+    // Calls single Pokemon API GET & updates state with info
+    const SinglePokemon = () => {
+      getSingleData()
+      .then(res => {
+        setSingleData(res)
+      })
+      .catch((err) => {
+        console.error(err.message)
+      })
+    }
  
-
-
- 
-
-  console.log(pokemonName)
-
-
     // Updates input state with text entered into search box
     const handleChange = (e) => {
       setInput(e.target.value)
@@ -80,7 +109,6 @@ function App () {
       e.preventDefault()
     }
     
-
   return (
     <>
       <div className='app'>
@@ -94,7 +122,7 @@ function App () {
               placeholder='Enter Pokemon here...'
               onChange={(e) => {handleChange(e)}}
             />
-            <button className='btn-search' onClick={getpokeUrl}>Search</button>
+            <button className='btn-search' onClick={updateSingleData}>Search</button>
             <button className='btn-random'>Random</button>
           </form>
         <h3>{display}</h3> 
