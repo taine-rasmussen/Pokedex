@@ -38,27 +38,6 @@ function App () {
   console.log(pokeData)
 
 
-  // Takes input and maps poke data for name and sets display as that name
-  const Search = (e) => {
-      e.preventDefault()
-      setDisplay(e.target.value)
-      }
-  
-
-  console.log('Dispaly:', display)
-
-  // Handles form submit
-  const handleSubmit = (e) => {
-    e.preventDefault()
-  }
-
-
-  // Captures text input & updates state
-  const handleChange = (e) => {
-    setInput(e.target.value)
-    setDisplay(e.target.value)
-    e.preventDefault()
-  }
 
 
   return (
