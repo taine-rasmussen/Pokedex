@@ -8,51 +8,19 @@ function App () {
 
   // Stores all Pokemon data on load
   const [data, setData] = useState('data')
-  // Stores single Pokemon data
-  const [singleData, setSingleData] = useState('')
   //  Stores info from pokemon profile to be displayed
   const [profile, setProfile] = useState({
     type: ''
   })
-
-
   // Stores input text
   const [input, setInput] = useState('input')
   // Stores data used to display on screen
   const [display, setDisplay] = useState('display')
 
-
-    // Gets all data on load
-    useEffect(() => {
-      getData()
-      .then(res => {
-        setData(res)
-      })
-      .catch((err) => {
-        console.error(err.message)
-      })
-    }, [])
-
-    // Gets all data from get request
-    const pokeData = data.results
-
-    // Gets data for single Pokemon name and API url   
-    let pokemonName = pokeData ? pokeData[0].name : []
-    let pokemonUrl = pokeData ? pokeData[0].url : []
-
-
-    // Updates single Pokemon object with current name & url
-    const updateSingleData = () => {
-      setSingleData(pokemonName)    
-    }
-    
-    // Has value of single Pokemon url
-    let test = singleData[1]
-
     // API call for single pokemon data
     function getSingleData () {
       return request
-        .get(`https://pokeapi.co/api/v2/pokemon/${singleData}`)
+        .get(`https://pokeapi.co/api/v2/pokemon/${input}`)
         .then(res => res.body)
     }
 
@@ -60,15 +28,35 @@ function App () {
     const SinglePokemon = () => {
       getSingleData()
       .then(res => {
-        setData(res)
+        setData(res), setDisplay(input)
       })
       .catch((err) => {
         console.error(err.message)
       })
     }
 
-    const uhhh = () => {
-      SinglePokemon()
+
+    // If unable to make this work try use that array of all names and pick random position
+    // https://gist.github.com/octalmage/6936761
+    const randomPokemon = () => {
+
+      let random = Math.floor(Math.random() * 151);
+
+      setInput(random)
+      
+      getSingleData()
+      .then(res => {
+        setData(res)
+      })
+      .catch((err) => {
+        console.error(err.message)
+      })
+
+
+
+      // gets random number between 1 & 150
+      // Updates input to that number
+      // call singlePokemon Func
     }
 
     // Updates input state with text entered into search box
@@ -95,8 +83,8 @@ function App () {
               placeholder='Enter Pokemon here...'
               onChange={(e) => {handleChange(e)}}
             />
-            <button className='btn-search' onClick={updateSingleData}>Search</button>
-            <button className='btn-random' onClick={SinglePokemon}>get data</button>
+            <button className='btn-search' onClick={SinglePokemon}>Search</button>
+            <button className='btn-random' onClick={randomPokemon}>random</button>
           </form>
         <h3>{display}</h3> 
       </div>
