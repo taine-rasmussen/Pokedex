@@ -22,40 +22,32 @@ function App () {
   const [display, setDisplay] = useState('display')
 
 
-  // Gets all data on load
-  useEffect(() => {
-    getData()
-    .then(res => {
-      setData(res)
-    })
-    .catch((err) => {
-      console.error(err.message)
-    })
-  }, [])
+    // Gets all data on load
+    useEffect(() => {
+      getData()
+      .then(res => {
+        setData(res)
+      })
+      .catch((err) => {
+        console.error(err.message)
+      })
+    }, [])
+
+    // Gets all data from get request
+    const pokeData = data.results
+
+    // Gets data for single Pokemon name and API url   
+    let pokemonName = pokeData ? pokeData[0].name : []
+    let pokemonUrl = pokeData ? pokeData[0].url : []
 
 
-
-
-
-
-
-
-  // Gets all data from get request
-  const pokeData = data.results
-
-  // Gets data for single Pokemon name and API url   
-  let pokemonName = pokeData ? pokeData[0].name : []
-  let pokemonUrl = pokeData ? pokeData[0].url : []
-
-
-// Updates single Pokemon object with current name & url
-const updateSingleData = () => {
-  setSingleData(singleData[1] = pokemonUrl)    
-}
-
+    // Updates single Pokemon object with current name & url
+    const updateSingleData = () => {
+      setSingleData(singleData[1] = pokemonUrl)    
+    }
     
+    // Has value of single Pokemon url
     let test = singleData[1]
-
 
     // API call for single pokemon data
     function getSingleData () {
@@ -75,26 +67,17 @@ const updateSingleData = () => {
       })
     }
 
-
-
     const uhhh = () => {
       SinglePokemon()
     }
 
-
-
-
-
-
-
-
- 
     // Updates input state with text entered into search box
     const handleChange = (e) => {
       setInput(e.target.value)
       // console.log(input)
     }
 
+    // Handles form submit
     const handleSubmit = (e) => {
       e.preventDefault()
     }
