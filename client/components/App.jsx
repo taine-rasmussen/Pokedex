@@ -38,6 +38,16 @@ function App () {
 
     // If unable to make this work try use that array of all names and pick random position
     // https://gist.github.com/octalmage/6936761
+    
+
+
+    // In space below search box and btns add a pokemon animation that is conditionaly rendering to flip to profile of pokemon searched once data has been returned from Get request - created two different components so its cleaner
+
+
+
+
+
+
     const randomPokemon = () => {
 
       let random = Math.floor(Math.random() * 151);
@@ -87,6 +97,11 @@ function App () {
             <button className='btn-random' onClick={randomPokemon}>random</button>
           </form>
         <h3>{display}</h3> 
+        <h3>Weight: {data.weight}</h3>
+        <h3>Height: {data.height}cm</h3>
+
+        {data.sprites ? (<img src={data.sprites.front_default} className='single-img' alt={data.name} />) : (null)}
+
       </div>
     </>
   )
