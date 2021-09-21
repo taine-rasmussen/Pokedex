@@ -17,18 +17,6 @@ function App () {
   // Stores data used to display on screen
   const [display, setDisplay] = useState('display')
 
-
-    // Gets all data on load
-    useEffect(() => {
-      getData()
-      .then(res => {
-        setData(res)
-      })
-      .catch((err) => {
-        console.error(err.message)
-      })
-    }, [])
-
     // API call for single pokemon data
     function getSingleData () {
       return request
@@ -40,7 +28,7 @@ function App () {
     const SinglePokemon = () => {
       getSingleData()
       .then(res => {
-        setData(res)
+        setData(res), setDisplay(input)
       })
       .catch((err) => {
         console.error(err.message)
