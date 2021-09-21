@@ -9,6 +9,8 @@ function App () {
 
   // Used to store all Pokemon data
   const [data, setData] = useState('')
+  const [singleData, setSingleData] = useState('')
+
 
   // Stores input text
   const [input, setInput] = useState('')
@@ -33,10 +35,30 @@ function App () {
   const pokeData = data.results
 
   // Gets arrays stored inside     
-  const singlePoke = pokeData ? pokeData[0] : []
+  const singlePoke = pokeData ? pokeData[0].name : []
 
-  console.log(pokeData)
 
+  function getSingleData () {
+    return request
+      .get(`https://pokeapi.co/api/v2/pokemon/${3}`)
+      .then(res => res.body)
+  }
+
+  const SinglePokemon = () => {
+    getSingleData()
+    .then(res => {
+      setSingleData(res)
+    })
+    .catch((err) => {
+      console.error(err.message)
+    })
+  }
+  SinglePokemon()
+
+  console.log('Single Test:', singleData)
+  
+
+  getSingleData()
 
 
 
