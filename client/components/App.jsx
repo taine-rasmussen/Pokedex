@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import request from 'superagent'
 
-
 // Importing API calls
 import { getData } from '../api'
 
@@ -33,18 +32,19 @@ function App () {
   // Gets all data from get request
   const pokeData = data.results
 
-  // Gets arrays stored inside     
+  // Gets data for single Pokemon name and API url   
   let singlePokeName = pokeData ? pokeData[0].name : []
   let singlePokeUrl = pokeData ? pokeData[0].url : []
 
 
-
+  // API call for single pokemon data
   function getSingleData () {
     return request
       .get({pokeUrl})
       .then(res => res.body)
   }
 
+  // Calls single Pokemon API GET & updates state with info
   const SinglePokemon = () => {
     getSingleData()
     .then(res => {
