@@ -7,3 +7,10 @@ export function getData () {
     .get(`https://pokeapi.co/api/v2/pokemon?limit=151`)
     .then(res => res.body)
 }
+
+// Gets data for pokemon === to input
+export function getSingleData (input) {
+  return request
+    .get(`https://pokeapi.co/api/v2/pokemon/${input}`)
+    .then(res => res.body)
+}
