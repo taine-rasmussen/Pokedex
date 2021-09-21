@@ -34,7 +34,9 @@ function App () {
   const pokeData = data.results
 
   // Gets arrays stored inside     
-  const singlePoke = pokeData ? pokeData[0].name : []
+  let singlePokeName = pokeData ? pokeData[0].name : []
+  let singlePokeUrl = pokeData ? pokeData[0].url : []
+
 
 
   function getSingleData () {
@@ -53,34 +55,19 @@ function App () {
     })
   }
  
-  
+  // need to get url to be used in single GET request
+
+  console.log(singlePokeUrl)
+
+  const getSinglePokeUrl = () => {
+    setPokeUrl({singlePokeUrl})
+  }
 
 
     const handleChange = (e) => {
       setInput(e.target.value)
       console.log(input)
     }
-
-
-
-
-    const getSinglePokemon = () => {
-
-    
-    }
-
-    // Either way I have to make another get request so instead of all this fancy work trying to find the index why not get just grab the url provided and get that
-    // use state "singlePokeUrl" to have it be dynamic
-
-
-
-
-  // Working function that gets all Pokemon
-  // Working function that gets data from single Pokemon via num
-
-  // Need to find a way to get num from allData and use that to concatnate into single Pokemon func to return correct info
-
-
 
   return (
     <>
