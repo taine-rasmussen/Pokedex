@@ -46,48 +46,36 @@ function App () {
 
 
 
-   // Sets state data to be used for Get request
-   const getpokeUrl = () => {
-    setPokeUrl({pokemonUrl})
-    console.log('onClick working, url is:', pokeUrl)
-  }
 
-
-  const updateSingleData = () => {
-    setSingleData({
-      name: pokemonName,
-      url: pokemonUrl
-    })
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    // Updates single Pokemon object with current name & url
+    const updateSingleData = () => {
+      setSingleData({
+        name: pokemonName,
+        url: pokemonUrl
+      })
+    }
 
 
 
     // API call for single pokemon data
     function getSingleData () {
       return request
-        .get({pokemonUrl})
+        .get({singleData})
         .then(res => res.body)
     }
 
+
+
+
+
+
+
+
+
+
+
+    
+    
     // Calls single Pokemon API GET & updates state with info
     const SinglePokemon = () => {
       getSingleData()
