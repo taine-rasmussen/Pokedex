@@ -1,22 +1,25 @@
 import React, {useEffect, useState} from 'react'
 import request from 'superagent'
 
-
 // Importing API calls
 import { getData } from '../api'
 
 function App () {
 
-  // Stores all Pokemon data
-  const [data, setData] = useState('')
+  // Stores all Pokemon data on load
+  const [data, setData] = useState('data')
   // Stores single Pokemon data
-  const [singleData, setSingleData] = useState('')
+  const [singleData, setSingleData] = useState([''])
+  //  Stores info from pokemon profile to be displayed
+  const [profile, setProfile] = useState({
+    type: ''
+  })
+
+
   // Stores input text
-  const [input, setInput] = useState('')
+  const [input, setInput] = useState('input')
   // Stores data used to display on screen
-  const [display, setDisplay] = useState('')
-  // stores Pokemon API URl used to get singleData
-  const [pokeUrl, setPokeUrl] = useState('')
+  const [display, setDisplay] = useState('display')
 
 
   // Gets all data on load
@@ -30,69 +33,89 @@ function App () {
     })
   }, [])
 
+
+
+
+
+
+
+
   // Gets all data from get request
   const pokeData = data.results
 
-  // Gets arrays stored inside     
-  let singlePokeName = pokeData ? pokeData[0].name : []
-  let singlePokeUrl = pokeData ? pokeData[0].url : []
+  // Gets data for single Pokemon name and API url   
+  let pokemonName = pokeData ? pokeData[0].name : []
+  let pokemonUrl = pokeData ? pokeData[0].url : []
 
 
+// Updates single Pokemon object with current name & url
+const updateSingleData = () => {
+  setSingleData(singleData[1] = pokemonUrl)    
+}
 
-  function getSingleData () {
-    return request
-      .get({pokeUrl})
-      .then(res => res.body)
-  }
-
-  const SinglePokemon = () => {
-    getSingleData()
-    .then(res => {
-      setSingleData(res)
-    })
-    .catch((err) => {
-      console.error(err.message)
-    })
-  }
- 
-  // need to get url to be used in single GET request
-
-  console.log(singlePokeUrl)
-
-  const getSinglePokeUrl = () => {
-    setPokeUrl({singlePokeUrl})
-  }
+    
+    let test = singleData[1]
 
 
-    const handleChange = (e) => {
-      setInput(e.target.value)
-      console.log(input)
+    // API call for single pokemon data
+    function getSingleData () {
+      return request
+        .get(test)
+        .then(res => res.body)
     }
 
+    // Calls single Pokemon API GET & updates state with info
+    const SinglePokemon = () => {
+      getSingleData()
+      .then(res => {
+        setData(res)
+      })
+      .catch((err) => {
+        console.error(err.message)
+      })
+    }
+
+
+
+    const uhhh = () => {
+      SinglePokemon()
+    }
+
+
+
+
+
+
+
+
+ 
+    // Updates input state with text entered into search box
+    const handleChange = (e) => {
+      setInput(e.target.value)
+      // console.log(input)
+    }
+
+    const handleSubmit = (e) => {
+      e.preventDefault()
+    }
+    
   return (
     <>
       <div className='app'>
-
         <div className='header-container'>
           <h1 className='header'>Pokédex</h1>
         </div>
-
-        <div className='search-container'>
-          <form >
+          <form onSubmit={(e) => {handleSubmit(e)}}>
             <input 
               type="text"
               className='search'
               placeholder='Enter Pokemon here...'
-              onChange={(e) => {handleChange(e)}}/>
+              onChange={(e) => {handleChange(e)}}
+            />
+            <button className='btn-search' onClick={updateSingleData}>Search</button>
+            <button className='btn-random' onClick={SinglePokemon}>get data</button>
           </form>
-        </div>
-
-        <div className='btn-container'>
-          <button className='btn-search'>Search</button>
-          <button className='btn-random'>Random</button>
-        </div>
-
-        <h3>{display}</h3>
+        <h3>{display}</h3> 
       </div>
     </>
   )
