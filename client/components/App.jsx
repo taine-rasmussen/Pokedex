@@ -8,10 +8,6 @@ function App () {
 
   // Stores all Pokemon data on load
   const [data, setData] = useState('data')
-  //  Stores info from pokemon profile to be displayed
-  const [profile, setProfile] = useState({
-    type: ''
-  })
   // Stores input text
   const [input, setInput] = useState('input')
   // Stores data used to display on screen
