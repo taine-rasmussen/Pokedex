@@ -16,6 +16,8 @@ function App () {
   const [input, setInput] = useState('')
   const [display, setDisplay] = useState('')
 
+  // Stores pokeIdex from all results
+  const [index, setIndex] = useState(0)
 
   // Pull all pokemon from data 
   // Have search map data results instead of another get request
@@ -40,7 +42,7 @@ function App () {
 
   function getSingleData () {
     return request
-      .get(`https://pokeapi.co/api/v2/pokemon/${3}`)
+      .get(`https://pokeapi.co/api/v2/pokemon/${index}`)
       .then(res => res.body)
   }
 
@@ -53,12 +55,43 @@ function App () {
       console.error(err.message)
     })
   }
-  SinglePokemon()
+  // SinglePokemon()
+  // getSingleData()
 
-  console.log('Single Test:', singleData)
-  
 
-  getSingleData()
+    const handleChange = (e) => {
+      setInput(e.target.value)
+      console.log(input)
+    }
+
+    let pokeL = data.results.length
+
+    // unable to fund length property atm - I think its becuase when we try find the data has returned from the get request so is undefined
+
+
+    // Either way I have to make another get request so instead of all this fancy work trying to find the index why not get just grab the url provided and get that
+    // use state "singlePokeUrl" to have it be dynamic
+
+    const searchSinglePokemon = (pokeData) => {
+
+      for (let i = 0; i <= pokeL; i++){
+        if (pokeData[i].name === input){
+          setIndex(pokeData[i])
+        } else {
+          return null
+        }
+      }
+      console.log('Index test:', input)
+    }
+
+    searchSinglePokemon()
+
+
+
+  // Working function that gets all Pokemon
+  // Working function that gets data from single Pokemon via num
+
+  // Need to find a way to get num from allData and use that to concatnate into single Pokemon func to return correct info
 
 
 
@@ -71,14 +104,12 @@ function App () {
         </div>
 
         <div className='search-container'>
-          <form>
+          <form >
             <input 
+              type="text"
               className='search'
-              type='text'
-              placeholder='Enter Pokemon name...'
-              value={input}
-              onChange={(e) => handleChange(e)}>
-            </input>
+              placeholder='Enter Pokemon here...'
+              onChange={(e) => {handleChange(e)}}/>
           </form>
         </div>
 
