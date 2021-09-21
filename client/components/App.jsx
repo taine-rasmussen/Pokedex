@@ -59,40 +59,43 @@ function App () {
 
   console.log(singlePokeUrl)
 
-  const getSinglePokeUrl = () => {
+  const getSinglePokeUrl = (e) => {
+    e.preventDefault()
+
     setPokeUrl({singlePokeUrl})
+    setDisplay({singlePokeName})
+
+    console.log('onClick working, url is:', singlePokeUrl)
   }
 
-
+    // Updates input state with text entered into search box
     const handleChange = (e) => {
       setInput(e.target.value)
-      console.log(input)
+      // console.log(input)
     }
+
+    const handleSubmit = (e) => {
+      e.preventDefault()
+    }
+    
 
   return (
     <>
       <div className='app'>
-
         <div className='header-container'>
           <h1 className='header'>Pokédex</h1>
         </div>
-
-        <div className='search-container'>
-          <form >
+          <form onSubmit={(e) => {handleSubmit(e)}}>
             <input 
               type="text"
               className='search'
               placeholder='Enter Pokemon here...'
-              onChange={(e) => {handleChange(e)}}/>
+              onChange={(e) => {handleChange(e)}}
+            />
+            <button className='btn-search' onClick={getSinglePokeUrl}>Search</button>
+            <button className='btn-random'>Random</button>
           </form>
-        </div>
-
-        <div className='btn-container'>
-          <button className='btn-search'>Search</button>
-          <button className='btn-random'>Random</button>
-        </div>
-
-        <h3>{display}</h3>
+        {/* <h3>{display}</h3> */} 
       </div>
     </>
   )
