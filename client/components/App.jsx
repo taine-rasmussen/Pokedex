@@ -53,12 +53,21 @@ function App () {
       console.error(err.message)
     })
   }
-  SinglePokemon()
+  // SinglePokemon()
+  // getSingleData()
 
-  console.log('Single Test:', singleData)
-  
 
-  getSingleData()
+    const handleChange = (e) => {
+      setInput(e.target.value)
+      console.log(input)
+    }
+
+
+
+  // Working function that gets all Pokemon
+  // Working function that gets data from single Pokemon via num
+
+  // Need to find a way to get num from allData and use that to concatnate into single Pokemon func to return correct info
 
 
 
@@ -71,14 +80,12 @@ function App () {
         </div>
 
         <div className='search-container'>
-          <form>
+          <form >
             <input 
+              type="text"
               className='search'
-              type='text'
-              placeholder='Enter Pokemon name...'
-              value={input}
-              onChange={(e) => handleChange(e)}>
-            </input>
+              placeholder='Enter Pokemon here...'
+              onChange={(e) => {handleChange(e)}}/>
           </form>
         </div>
 
