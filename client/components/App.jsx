@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import request from 'superagent'
 
 // Importing API calls
-import { getData } from '../api'
+import { getData, getSingleData } from '../api'
 
 function App () {
 
@@ -16,17 +16,10 @@ function App () {
   const [input, setInput] = useState('input')
   // Stores data used to display on screen
   const [display, setDisplay] = useState('display')
-
-    // API call for single pokemon data
-    function getSingleData () {
-      return request
-        .get(`https://pokeapi.co/api/v2/pokemon/${input}`)
-        .then(res => res.body)
-    }
-
+   
     // Calls single Pokemon API GET & updates state with info
     const SinglePokemon = () => {
-      getSingleData()
+      getSingleData(input)
       .then(res => {
         setData(res), setDisplay(input)
       })
@@ -35,35 +28,22 @@ function App () {
       })
     }
 
-
-    // If unable to make this work try use that array of all names and pick random position
     // https://gist.github.com/octalmage/6936761
-    
-
-
     // In space below search box and btns add a pokemon animation that is conditionaly rendering to flip to profile of pokemon searched once data has been returned from Get request - created two different components so its cleaner
-
-
-
-
 
 
     const randomPokemon = () => {
 
       let random = Math.floor(Math.random() * 151);
-
       setInput(random)
-      
-      getSingleData()
+
+      getSingleData(input)
       .then(res => {
         setData(res)
       })
       .catch((err) => {
         console.error(err.message)
       })
-
-
-
       // gets random number between 1 & 150
       // Updates input to that number
       // call singlePokemon Func
