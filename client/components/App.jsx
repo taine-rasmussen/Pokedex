@@ -7,21 +7,17 @@ import { getData } from '../api'
 
 function App () {
 
-  // Used to store all Pokemon data
+  // Stores all Pokemon data
   const [data, setData] = useState('')
+  // Stores single Pokemon data
   const [singleData, setSingleData] = useState('')
-
-
   // Stores input text
   const [input, setInput] = useState('')
+  // Stores data used to display on screen
   const [display, setDisplay] = useState('')
-
   // stores Pokemon API URl used to get singleData
   const [pokeUrl, setPokeUrl] = useState('')
 
-
-  // Pull all pokemon from data 
-  // Have search map data results instead of another get request
 
   // Gets all data on load
   useEffect(() => {
@@ -65,6 +61,13 @@ function App () {
       console.log(input)
     }
 
+
+
+
+    const getSinglePokemon = () => {
+
+    
+    }
 
     // Either way I have to make another get request so instead of all this fancy work trying to find the index why not get just grab the url provided and get that
     // use state "singlePokeUrl" to have it be dynamic
