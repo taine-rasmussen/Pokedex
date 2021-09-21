@@ -35,32 +35,28 @@ function App () {
   // Gets arrays stored inside     
   const singlePoke = pokeData ? pokeData[0] : []
 
-  console.log(singlePoke.name)
+  console.log(pokeData)
 
 
   // Takes input and maps poke data for name and sets display as that name
   const Search = (e) => {
-    e.preventDefault()
-    pokeData.map(() => {
-      if(pokeData.name === input){
-        setDisplay(input)
-      } else {
-        return null
+      e.preventDefault()
+      setDisplay(e.target.value)
       }
-    })
-  }
+  
 
   console.log('Dispaly:', display)
 
   // Handles form submit
   const handleSubmit = (e) => {
     e.preventDefault()
-    setDisplay('fuck just work please')
   }
+
 
   // Captures text input & updates state
   const handleChange = (e) => {
     setInput(e.target.value)
+    setDisplay(e.target.value)
     e.preventDefault()
   }
 
@@ -74,7 +70,7 @@ function App () {
         </div>
 
         <div className='search-container'>
-          <form onSubmit={handleSubmit}>
+          <form>
             <input 
               className='search'
               type='text'
