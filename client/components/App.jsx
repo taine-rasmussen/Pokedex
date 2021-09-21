@@ -9,7 +9,7 @@ function App () {
   // Stores all Pokemon data on load
   const [data, setData] = useState('data')
   // Stores single Pokemon data
-  const [singleData, setSingleData] = useState([''])
+  const [singleData, setSingleData] = useState('')
   //  Stores info from pokemon profile to be displayed
   const [profile, setProfile] = useState({
     type: ''
@@ -43,7 +43,7 @@ function App () {
 
     // Updates single Pokemon object with current name & url
     const updateSingleData = () => {
-      setSingleData(singleData[1] = pokemonUrl)    
+      setSingleData(pokemonName)    
     }
     
     // Has value of single Pokemon url
@@ -52,7 +52,7 @@ function App () {
     // API call for single pokemon data
     function getSingleData () {
       return request
-        .get(test)
+        .get(`https://pokeapi.co/api/v2/pokemon/${singleData}`)
         .then(res => res.body)
     }
 
