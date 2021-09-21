@@ -16,8 +16,9 @@ function App () {
   const [input, setInput] = useState('')
   const [display, setDisplay] = useState('')
 
-  // Stores pokeIdex from all results
-  const [index, setIndex] = useState(0)
+  // stores Pokemon API URl used to get singleData
+  const [pokeUrl, setPokeUrl] = useState('')
+
 
   // Pull all pokemon from data 
   // Have search map data results instead of another get request
@@ -64,27 +65,10 @@ function App () {
       console.log(input)
     }
 
-    let pokeL = data.results.length
-
-    // unable to fund length property atm - I think its becuase when we try find the data has returned from the get request so is undefined
-
 
     // Either way I have to make another get request so instead of all this fancy work trying to find the index why not get just grab the url provided and get that
     // use state "singlePokeUrl" to have it be dynamic
 
-    const searchSinglePokemon = (pokeData) => {
-
-      for (let i = 0; i <= pokeL; i++){
-        if (pokeData[i].name === input){
-          setIndex(pokeData[i])
-        } else {
-          return null
-        }
-      }
-      console.log('Index test:', input)
-    }
-
-    searchSinglePokemon()
 
 
 
