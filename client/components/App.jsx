@@ -9,6 +9,8 @@ function App () {
 
   // Used to store all Pokemon data
   const [data, setData] = useState('')
+  const [singleData, setSingleData] = useState('')
+
 
   // Stores input text
   const [input, setInput] = useState('')
@@ -33,36 +35,31 @@ function App () {
   const pokeData = data.results
 
   // Gets arrays stored inside     
-  const singlePoke = pokeData ? pokeData[0] : []
-
-  console.log(singlePoke.name)
+  const singlePoke = pokeData ? pokeData[0].name : []
 
 
-  // Takes input and maps poke data for name and sets display as that name
-  const Search = (e) => {
-    e.preventDefault()
-    pokeData.map(() => {
-      if(pokeData.name === input){
-        setDisplay(input)
-      } else {
-        return null
-      }
+  function getSingleData () {
+    return request
+      .get(`https://pokeapi.co/api/v2/pokemon/${3}`)
+      .then(res => res.body)
+  }
+
+  const SinglePokemon = () => {
+    getSingleData()
+    .then(res => {
+      setSingleData(res)
+    })
+    .catch((err) => {
+      console.error(err.message)
     })
   }
+  SinglePokemon()
 
-  console.log('Dispaly:', display)
+  console.log('Single Test:', singleData)
+  
 
-  // Handles form submit
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    setDisplay('fuck just work please')
-  }
+  getSingleData()
 
-  // Captures text input & updates state
-  const handleChange = (e) => {
-    setInput(e.target.value)
-    e.preventDefault()
-  }
 
 
   return (
@@ -74,7 +71,7 @@ function App () {
         </div>
 
         <div className='search-container'>
-          <form onSubmit={handleSubmit}>
+          <form>
             <input 
               className='search'
               type='text'
