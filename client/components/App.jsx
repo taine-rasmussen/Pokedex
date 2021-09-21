@@ -35,6 +35,9 @@ function App () {
       })
     }
 
+
+    // If unable to make this work try use that array of all names and pick random position
+    // https://gist.github.com/octalmage/6936761
     const randomPokemon = () => {
 
       let random = Math.floor(Math.random() * 151);
