@@ -35,6 +35,27 @@ function App () {
       })
     }
 
+    const randomPokemon = () => {
+
+      let random = Math.floor(Math.random() * 151);
+
+      setInput(random)
+      
+      getSingleData()
+      .then(res => {
+        setData(res)
+      })
+      .catch((err) => {
+        console.error(err.message)
+      })
+
+
+
+      // gets random number between 1 & 150
+      // Updates input to that number
+      // call singlePokemon Func
+    }
+
     // Updates input state with text entered into search box
     const handleChange = (e) => {
       setInput(e.target.value)
@@ -60,7 +81,7 @@ function App () {
               onChange={(e) => {handleChange(e)}}
             />
             <button className='btn-search' onClick={SinglePokemon}>Search</button>
-            <button className='btn-random'>random</button>
+            <button className='btn-random' onClick={randomPokemon}>random</button>
           </form>
         <h3>{display}</h3> 
       </div>
