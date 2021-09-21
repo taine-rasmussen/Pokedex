@@ -7,20 +7,17 @@ import { getData } from '../api'
 
 function App () {
 
-  // Used to store all Pokemon data
+  // Stores all Pokemon data
   const [data, setData] = useState('')
+  // Stores single Pokemon data
   const [singleData, setSingleData] = useState('')
-
-
   // Stores input text
   const [input, setInput] = useState('')
+  // Stores data used to display on screen
   const [display, setDisplay] = useState('')
+  // stores Pokemon API URl used to get singleData
+  const [pokeUrl, setPokeUrl] = useState('')
 
-  // Stores pokeIdex from all results
-  const [index, setIndex] = useState(0)
-
-  // Pull all pokemon from data 
-  // Have search map data results instead of another get request
 
   // Gets all data on load
   useEffect(() => {
@@ -37,12 +34,14 @@ function App () {
   const pokeData = data.results
 
   // Gets arrays stored inside     
-  const singlePoke = pokeData ? pokeData[0].name : []
+  let singlePokeName = pokeData ? pokeData[0].name : []
+  let singlePokeUrl = pokeData ? pokeData[0].url : []
+
 
 
   function getSingleData () {
     return request
-      .get(`https://pokeapi.co/api/v2/pokemon/${index}`)
+      .get({pokeUrl})
       .then(res => res.body)
   }
 
@@ -55,45 +54,20 @@ function App () {
       console.error(err.message)
     })
   }
-  // SinglePokemon()
-  // getSingleData()
+ 
+  // need to get url to be used in single GET request
+
+  console.log(singlePokeUrl)
+
+  const getSinglePokeUrl = () => {
+    setPokeUrl({singlePokeUrl})
+  }
 
 
     const handleChange = (e) => {
       setInput(e.target.value)
       console.log(input)
     }
-
-    let pokeL = data.results.length
-
-    // unable to fund length property atm - I think its becuase when we try find the data has returned from the get request so is undefined
-
-
-    // Either way I have to make another get request so instead of all this fancy work trying to find the index why not get just grab the url provided and get that
-    // use state "singlePokeUrl" to have it be dynamic
-
-    const searchSinglePokemon = (pokeData) => {
-
-      for (let i = 0; i <= pokeL; i++){
-        if (pokeData[i].name === input){
-          setIndex(pokeData[i])
-        } else {
-          return null
-        }
-      }
-      console.log('Index test:', input)
-    }
-
-    searchSinglePokemon()
-
-
-
-  // Working function that gets all Pokemon
-  // Working function that gets data from single Pokemon via num
-
-  // Need to find a way to get num from allData and use that to concatnate into single Pokemon func to return correct info
-
-
 
   return (
     <>
