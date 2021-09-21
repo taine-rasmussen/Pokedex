@@ -16,6 +16,8 @@ function App () {
   const [input, setInput] = useState('')
   const [display, setDisplay] = useState('')
 
+  // Stores pokeIdex from all results
+  const [index, setIndex] = useState(0)
 
   // Pull all pokemon from data 
   // Have search map data results instead of another get request
@@ -40,7 +42,7 @@ function App () {
 
   function getSingleData () {
     return request
-      .get(`https://pokeapi.co/api/v2/pokemon/${3}`)
+      .get(`https://pokeapi.co/api/v2/pokemon/${index}`)
       .then(res => res.body)
   }
 
@@ -61,6 +63,21 @@ function App () {
       setInput(e.target.value)
       console.log(input)
     }
+
+
+    const searchSinglePokemon = (pokeData) => {
+
+      for (let i = 0; i <= pokeData.length; i++){
+        if (pokeData[i].name === input){
+          setIndex(i)
+        } else {
+          return null
+        }
+      }
+      console.log('Index test:', input)
+    }
+
+    searchSinglePokemon()
 
 
 
