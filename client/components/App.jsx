@@ -7,7 +7,7 @@ import PreResults from './preresults'
 
 function App () {
 
-   // Stores all Pokemon data on load
+   // Stores Pokemon data on load
    const [data, setData] = useState('data')
    // Stores input text
    const [input, setInput] = useState('input')
