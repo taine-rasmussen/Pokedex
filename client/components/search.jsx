@@ -4,20 +4,7 @@ import { SinglePokemon } from './App'
 import { getData, getSingleData } from '../api'
 
 
-function Search () {
-
-
-    // In space below search box and btns add a pokemon animation that is conditionaly rendering to flip to profile of pokemon searched once data has been returned from Get request - created two different components so its cleaner
-
-
-
-
-        // Stores all Pokemon data on load
-   const [data, setData] = useState('data')
-   // Stores input text
-   const [input, setInput] = useState('input')
-
-   // Pass down state through comps
+function Search ({input, setInput, setData}) {
 
     // Calls single Pokemon API GET & updates state with info
     const SinglePokemon = () => {
@@ -29,11 +16,6 @@ function Search () {
         console.error(err.message)
       })
     }
-
-
-
-    
-    
 
     // Updates input state with text entered into search box
     const handleChange = (e) => {
