@@ -67,6 +67,26 @@ button:hover{
   margin: 2.5px;
 }
 // ---- Search Component ----
+// ---- preResults ----
+.preresults-container{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: -2rem;
+}
+.preresults-gif{
+  height: 400px;
+  width: 400px;
+  border: black solid 8px;
+  border-radius: 10px;
+}
+// ---- preResults ----
+
+
+
+
+
+
 
 
 // imgs

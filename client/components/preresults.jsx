@@ -4,7 +4,9 @@ const PreResults = () => {
 
     return(
         <>
-            <h3>PreResults component working</h3>
+            <div className="preresults-container">
+                <img src="pokemon-evolve.gif" alt="pokemon" className='preresults-gif'/>
+            </div>
         </>
     )
 }
