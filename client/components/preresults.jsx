@@ -4,7 +4,7 @@ const PreResults = () => {
 
     return(
         <>
-            <h1>PreResults comp working</h1>
+            <h3>PreResults component working</h3>
         </>
     )
 }

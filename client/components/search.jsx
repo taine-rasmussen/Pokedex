@@ -28,7 +28,7 @@ function Search ({input, setInput, setData}) {
     
   return (
     <>
-      <div className='app'>
+      <div className='search-container'>
         <div className='header-container'>
           <h1 className='header'>Pokédex</h1>
         </div>
