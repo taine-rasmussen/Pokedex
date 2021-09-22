@@ -67,7 +67,7 @@ button:hover{
   margin: 2.5px;
 }
 // ---- Search Component ----
-// ---- preResults ----
+// ---- preResults Component ----
 .preresults-container{
   display:flex;
   flex-wrap: wrap;
@@ -80,7 +80,15 @@ button:hover{
   border: black solid 8px;
   border-radius: 10px;
 }
-// ---- preResults ----
+// ---- preResults component ----
+// ---- Results component ----
+.results-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+// ---- Results component ----
+
 
 
 
