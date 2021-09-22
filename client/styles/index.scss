@@ -86,21 +86,22 @@ button:hover{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
-  border: 2px solid black;
   margin-top: -4rem;
   z-index: 2;
 }
 
 .results-profile-container{
-  border: 5px solid rgb(182, 30, 30);
+  border: 8px solid #3c5aa6;
+  border-radius: 10px;
   width: 400px;
   height: 600px;
   z-index: 2;
 }
 
 .results-profile-img{
-  border: 5px solid rgb(30, 182, 106);
+  border: 6px solid black;
+  box-shadow: #ffcb05 0 0 10px;
+  border-radius: 10px;
   z-index: 1;
   width: 200px;
   height: 200px;
@@ -108,12 +109,11 @@ button:hover{
 }
 
 .results-profile-info{
-  border: 5px solid rgb(58, 30, 182);
   width: 130px;
   height: 230px;
   z-index: 2;
-  margin-left: 240px;
-  margin-top: -234.8px;
+  margin-left: 250px;
+  margin-top: -239.8px;
 
 }
 // ---- Results component ----
