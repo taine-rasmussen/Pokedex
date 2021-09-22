@@ -15,10 +15,10 @@ function App () {
   return (
     <>
       <div className="app-container">
-        <div className="search-container">
+        <div className="search-component">
           <Search input={input} setInput={setInput} data={data} setData={setData}/>
         </div>
-        <div className="results-container">
+        <div className="results-component">
           {data.sprites ? <Results data={data}/> : <PreResults />}
         </div>
       </div>
