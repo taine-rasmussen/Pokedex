@@ -90,7 +90,6 @@ button:hover{
   border: 2px solid black;
   margin-top: -4rem;
   z-index: 2;
-
 }
 
 .results-profile-container{
@@ -103,8 +102,9 @@ button:hover{
 .results-profile-img{
   border: 5px solid rgb(30, 182, 106);
   z-index: 1;
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
+  margin: 20px;
 }
 
 .results-profiler-info{
