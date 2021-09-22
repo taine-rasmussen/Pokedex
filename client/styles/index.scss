@@ -107,8 +107,13 @@ button:hover{
   margin: 20px;
 }
 
-.results-profiler-info{
+.results-profile-info{
+  border: 5px solid rgb(58, 30, 182);
+  width: 130px;
+  height: 230px;
   z-index: 2;
+  margin-left: 240px;
+  margin-top: -234.8px;
 
 }
 // ---- Results component ----
