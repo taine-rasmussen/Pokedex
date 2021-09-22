@@ -9,8 +9,8 @@ function App () {
 
    // Stores Pokemon data on load
    const [data, setData] = useState('data')
-   // Stores input text
-   const [input, setInput] = useState('input')
+   // Stores input text - starts as random num in case first action on page is the random pokemon btn
+   const [input, setInput] = useState(Math.floor(Math.random() * 151))
 
   return (
     <>
@@ -28,17 +28,7 @@ function App () {
 
 export default App
 
-
-
-
-
-
-
-
-
-
 // MVP
-// Set landing page with react components - no routing needed
 // default page large search space (eg google) that prompts the search for a pokemon - sends get request to api and fills page with information
 // next to search btn will be a random btn that will generate random pokemon on screen
 // Ability to clear or search again

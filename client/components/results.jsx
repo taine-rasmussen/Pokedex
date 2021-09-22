@@ -6,9 +6,7 @@ const Results = ({data}) => {
         <>
             <div className="results-container">
                 <div className="results-profile-container">
-
-                        {data.sprites ? (<img src={data.sprites.front_default} className='results-profile-img' alt={data.name} />) : (null)}
-
+                    {data.sprites ? (<img src={data.sprites.front_default} className='results-profile-img' alt={data.name} />) : (null)}
                     <div className="results-profile-info">
                         <h3><strong className="italic">Name:</strong> {data.name}</h3> 
                         <h3><strong className="italic">Weight:</strong>  {data.weight}</h3>
