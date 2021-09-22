@@ -1,14 +1,48 @@
-import React from 'react'
+import React, {  useState } from 'react'
+
+
+// API calls 
+import { getData, getSingleData } from '../api'
 
 
 // components
 import Search from './search'
+import Results from './results'
+import PreResults from './preresults'
 
 function App () {
 
+
+   // Stores all Pokemon data on load
+   const [data, setData] = useState('data')
+   // Stores input text
+   const [input, setInput] = useState('input')
+
+   // Pass down state through comps
+
+    // Calls single Pokemon API GET & updates state with info
+    const SinglePokemon = () => {
+      getSingleData(input)
+      .then(res => {
+        setData(res), setDisplay(input)
+      })
+      .catch((err) => {
+        console.error(err.message)
+      })
+    }
+
+
   return (
     <>
-      <Search />
+    <div className="app-container">
+      <div className="search-container">
+        <Search />
+      </div>
+      <div className="results-container">
+        {data.sprites ? <Results /> : <PreResults />}
+      </div>
+    </div>
+
     </>
   )
 }
