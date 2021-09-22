@@ -1,6 +1,5 @@
 import request from 'superagent'
 
-
 // Gets data for 1000 Pokemon
 export function getData () {
   return request
