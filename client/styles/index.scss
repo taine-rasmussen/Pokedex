@@ -67,12 +67,12 @@ button:hover{
   margin: 2.5px;
 }
 // ---- Search Component ----
-// ---- preResults ----
+// ---- preResults Component ----
 .preresults-container{
   display:flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: -2rem;
+  margin-top: -3rem;
 }
 .preresults-gif{
   height: 400px;
@@ -80,7 +80,44 @@ button:hover{
   border: black solid 8px;
   border-radius: 10px;
 }
-// ---- preResults ----
+// ---- preResults component ----
+// ---- Results component ----
+.results-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  border: 2px solid black;
+  margin-top: -4rem;
+  z-index: 2;
+}
+
+.results-profile-container{
+  border: 5px solid rgb(182, 30, 30);
+  width: 400px;
+  height: 600px;
+  z-index: 2;
+}
+
+.results-profile-img{
+  border: 5px solid rgb(30, 182, 106);
+  z-index: 1;
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+}
+
+.results-profile-info{
+  border: 5px solid rgb(58, 30, 182);
+  width: 130px;
+  height: 230px;
+  z-index: 2;
+  margin-left: 240px;
+  margin-top: -234.8px;
+
+}
+// ---- Results component ----
+
 
 
 

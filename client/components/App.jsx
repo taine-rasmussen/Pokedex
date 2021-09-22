@@ -36,6 +36,7 @@ export default App
 
 
 
+
 // MVP
 // Set landing page with react components - no routing needed
 // default page large search space (eg google) that prompts the search for a pokemon - sends get request to api and fills page with information
