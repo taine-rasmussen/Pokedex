@@ -24,6 +24,7 @@ function Search ({input, setInput, setData}) {
     // Handles form submit
     const handleSubmit = (e) => {
       e.preventDefault()
+      setInput('nice')
     }
     
   return (
@@ -32,7 +33,8 @@ function Search ({input, setInput, setData}) {
         <div className='header-container'>
           <h1 className='header'>Pokédex</h1>
         </div>
-          <form onSubmit={(e) => {handleSubmit(e)}}>
+
+          <form onSubmit={(e) => {handleSubmit(e)}} className='search-form'>
             <input type="text" className='search' placeholder='Enter Pokemon here...' onChange={(e) => {handleChange(e)}}/>
             <button className='btn-search' onClick={SinglePokemon}>Search</button>
             <button className='btn-random' >random</button>

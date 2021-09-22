@@ -32,6 +32,10 @@ button:hover{
  
 }
 
+.search-form{
+  margin-top: -8rem;
+}
+
 .header{
   color: #ffcb05;
   -webkit-text-stroke-width: 4px;
@@ -54,11 +58,12 @@ button:hover{
 }
 
 .btn-search{
-  margin-left: 3rem;
+  margin: 2.5px;
+  margin-left: 6px;
 }
 
 .btn-random{
-margin-left: 16rem;
+  margin: 2.5px;
 }
 // ---- Search Component ----
 
