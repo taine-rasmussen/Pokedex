@@ -29,7 +29,7 @@ button:hover{
   margin-top: -5rem;
 }
 
-.header-container{
+.search-header-container{
  
 }
 
@@ -37,7 +37,7 @@ button:hover{
   margin-top: -8rem;
 }
 
-.header{
+.search-header{
   color: #ffcb05;
   -webkit-text-stroke-width: 4px;
   -webkit-text-stroke-color: #3c5aa6;
@@ -115,7 +115,7 @@ button:hover{
   margin-left: 270px;
   margin-top: -213px;
   border-top: 4px solid #3c5aa6;
-
+  content: "";
 }
 
 .italic{

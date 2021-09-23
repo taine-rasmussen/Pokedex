@@ -6,8 +6,8 @@ import { getData, getSingleData } from '../api'
 
 function Search ({input, setInput, setData}) {
 
-    // Calls single Pokemon API GET & updates state with info
-    const SinglePokemon = () => {
+    // Returns pokemon data based on user input
+    const getSinglePokemon = () => {
       getSingleData(input)
       .then(res => {
         setData(res)
@@ -44,12 +44,12 @@ function Search ({input, setInput, setData}) {
   return (
     <>
       <div className='search-container'>
-        <div className='header-container'>
-          <h1 className='header'>Pokédex</h1>
+        <div className='search-header-container'>
+          <h1 className='search-header'>Pokédex</h1>
         </div>
           <form onSubmit={(e) => {handleSubmit(e)}} className='search-form'>
             <input type="text" className='search' placeholder='Enter Pokemon here...' onChange={(e) => {handleChange(e)}}/>
-            <button className='btn-search' onClick={SinglePokemon}>Search</button>
+            <button className='btn-search' onClick={getSinglePokemon}>Search</button>
             <button className='btn-random' onClick={getRandomPokemon}>random</button>
           </form>
       </div>
