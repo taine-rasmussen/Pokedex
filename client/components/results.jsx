@@ -2,6 +2,18 @@ import React from 'react';
 
 const Results = ({data}) => {
 
+
+    // Converts weight data for pokemon to kg
+    const convertWeight = () => {
+
+      
+
+
+
+        // weight comes through as 60 should be 6.0kg / 4600 should be 460.0kg
+        // Func insterts decimal point to left of last 0 on data.weight
+      }
+
     return(
         <>
             <div className="results-container">
