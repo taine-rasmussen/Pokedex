@@ -32,6 +32,7 @@ function Search ({input, setInput, setData}) {
       })
     }
 
+
     // Updates input state with text entered into search box
     const handleChange = (e) => {
       setInput(e.target.value)
