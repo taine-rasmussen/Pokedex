@@ -2,18 +2,17 @@ import React, { useState } from 'react';
 
 const Results = ({data}) => {
 
-    const [weight, setWeight] = useState('')
-
+    let pokemonWeight = data.weight
     // Converts weight data for pokemon to kg
     const convertWeight = () => {
 
-
-
-
+        console.log('weight test:', pokemonWeight)
         // weight comes through as 60 should be 6.0kg / 4600 should be 460.0kg
         // Func insterts decimal point to left of last 0 on data.weight
         // Pokemon without without weith ending in 0 364 should be 36.4kg
       }
+
+      convertWeight()
 
     return(
         <>
