@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 
 const Results = ({data}) => {
 
+    const [weight, setWeight] = useState('')
 
     // Converts weight data for pokemon to kg
     const convertWeight = () => {
 
-      const [weight, setWeight] = useState('')
 
 
 
