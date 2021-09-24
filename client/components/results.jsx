@@ -8,7 +8,7 @@ const Results = ({data}) => {
     // Converts weight data for pokemon to kg
     const convertWeight = () => {
 
-        
+
 
 
 
@@ -27,7 +27,7 @@ const Results = ({data}) => {
                     {data.sprites ? (<img src={data.sprites.front_default} className='results-profile-img' alt={data.name} />) : (null)}
                     <div className="results-profile-info">
                         <h3><strong className="italic">Name:</strong> {data.name}</h3> 
-                        <h3><strong className="italic">Weight:</strong>  {data.weight}</h3>
+                        <h3><strong className="italic">Weight:</strong>  {pokemonWeight}kg</h3>
                         <h3><strong className="italic">Height:</strong>  {data.height}</h3>
                     </div>
                 </div>
