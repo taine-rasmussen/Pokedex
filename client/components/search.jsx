@@ -39,6 +39,7 @@ function Search ({input, setInput, setData}) {
     // Handles form submit
     const handleSubmit = (e) => {
       e.preventDefault()
+      e.target.reset()
     }
     
   return (
