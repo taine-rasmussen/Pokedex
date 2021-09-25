@@ -8,11 +8,15 @@ const Results = ({data}) => {
     // Converts weight data for pokemon to kg
     const convertWeight = () => {
 
+        let convert = pokemonWeight.split('')
+        let length = convert.length
+
+        let uhhh = convert.splice(length -1, 'feb')
 
 
 
 
-        console.log('weight test:', pokemonWeight.length);
+        console.log('weight split test:', uhhh);
         // weight comes through as 60 should be 6.0kg / 4600 should be 460.0kg
         // Func insterts decimal point to left of last 0 on data.weight
         // Pokemon without without weith ending in 0 364 should be 36.4kg
